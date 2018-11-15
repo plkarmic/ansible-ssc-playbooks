@@ -1,0 +1,8 @@
+ tasks:
+   - name: Search-only, return list of found updates (if any), log to C:\ansible_wu.txt
+     win_updates:
+       category_names: SecurityUpdates
+       state: searched
+       log_path: C:\ansible_wu.txt
+     register: update_result
+   - debug: var=update_result.found_update_count
